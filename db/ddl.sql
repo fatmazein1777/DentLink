@@ -2,7 +2,7 @@
 -- ================= USERS =================
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
-    phone_number text UNIQUE,
+    phone_number text,
     password TEXT,
     role VARCHAR(20),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
