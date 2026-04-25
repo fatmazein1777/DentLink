@@ -2,7 +2,7 @@
 -- ================= USERS =================
 CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
-    email VARCHAR(100) UNIQUE,
+    phone_number text UNIQUE,
     password TEXT,
     role VARCHAR(20),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -40,11 +40,13 @@ CREATE TABLE students (
     user_id INT UNIQUE,
     first_name TEXT,
     last_name TEXT,
-    academic_email VARCHAR(100),
+    email VARCHAR(150),
+    academic_email VARCHAR(100) UNIQUE,
     academic_year INT,
     university_id INT,
-    phone_number VARCHAR(20),
+    phone_number TEXT UNIQUE ,
     portfolio_id INT,
+    profile_image TEXT,
 
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (university_id) REFERENCES universities(university_id),
@@ -57,7 +59,7 @@ CREATE TABLE patients (
     user_id INT UNIQUE,
     first_name TEXT,
     last_name TEXT,
-    phone_number VARCHAR(20),
+    phone_number TEXT UNIQUE,
     date_of_birth DATE,
     address TEXT,
     gender VARCHAR(6),
